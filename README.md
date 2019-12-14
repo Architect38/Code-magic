@@ -1,0 +1,2 @@
+# Code-magic
+Graduate diploma
