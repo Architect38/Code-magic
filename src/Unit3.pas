@@ -1,0 +1,398 @@
+unit Unit3;
+
+interface
+procedure level1;
+procedure level2;
+procedure level3;
+procedure level4;
+procedure levelif;
+procedure ssilka;
+procedure konec;
+
+
+implementation
+
+uses Unit1, Unit4,  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GIFImage, sSkinProvider, sSkinManager, StdCtrls, sLabel, sButton,
+  sMemo, sRadioButton, ExtCtrls, sPanel, ComCtrls, sRichEdit, sUpDown,
+  acNoteBook, sPageControl, acSlider, sScrollBox, sFrameBar, sScrollBar,
+  sBevel, acHeaderControl,acPNG, acImage, OleCtrls, SHDocVw,
+  sTrackBar, Mask, sMaskEdit, sCustomComboEdit, sToolEdit, sMonthCalendar;
+
+function LowerCase(s: string): string;
+var
+  i: integer;
+begin
+  result := s;
+  for i := 1 to length(result) do
+    if (result[i] in ['A'..'Z', 'А'..'Я']) then
+      result[i] := chr(ord(result[i]) + 32);
+end;
+procedure RE(ARichEdit: TsRichEdit; ARow: Integer; AColor: TColor);
+ begin
+   with ARichEdit do
+   begin
+     SelStart := SendMessage(Handle, EM_LINEINDEX, ARow - 1, 0);
+     SelLength := Length(Lines[ARow - 1]);
+     SelAttributes.Color := AColor;
+     SelLength := 0;
+   end;
+ end;
+//==================================================================================================
+procedure ssilka();
+begin
+
+  if (glava=1)and(l=1) then
+    begin
+      form1.Timer1.Enabled:=false;
+      inc(n);
+      level1();
+    end;
+
+    if (glava=1)and(l=2) then
+    begin
+      form1.Timer1.Enabled:=false;
+      inc(n);
+      level2();
+    end;
+
+    if (glava=1)and(l=3) then
+    begin
+      form1.Timer1.Enabled:=false;
+      lg:=0;
+      inc(n);
+      level3();
+    end;
+
+    if (glava=1)and(l=4) then
+    begin
+      form1.Timer1.Enabled:=false;
+      form1.Timer3.Enabled:=false;
+      re(form1.OOP1.sRichEdit1,n+1,clblack);
+      form1.OOP1.Image7.Picture.LoadFromFile('Рычаг2.png');
+      form1.OOP1.Image2.Picture.LoadFromFile('Рычаг1.png');
+      inc(n);
+      level4();
+    end;
+
+    if (glava=4)and(l=1) then
+    begin
+      form1.Timer1.Enabled:=false;
+      form1.Timer4.Enabled:=false;
+      form1.oop1.Image4.Visible:=true;
+      if (rg=0)or(rg=1) then
+        begin
+          inc(n);
+          form1.Timer5.Enabled:=true;
+          exit;
+        end;
+      inc(n);
+      levelif();
+    end;
+end;
+
+procedure konec();
+begin
+  form1.Timer5.Enabled:=false;
+  sp2:=0;
+  form1.OOP1.image4.Picture.LoadFromFile('dead.png');
+  form1.OOP1.Image4.Top:= form1.OOP1.Image4.Top+15;
+  showmessage('Вас убили!');
+  form1.OOP1.sSpeedButton1.Click;
+end;
+
+procedure level1();
+label M;
+var
+i:integer;
+begin
+M:
+with form1.OOP1 do
+  begin
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[1])and(image4.Top=tp[1]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    inc(n);
+    if n>srichedit1.Lines.Count-1 then exit;
+    goto M;
+  end;
+end;
+
+
+procedure level2();
+label M;
+var
+i:integer;
+begin
+M:
+with form1.OOP1 do
+  begin
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[1])and(image4.Top=tp[1]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    inc(n);
+    if n>srichedit1.Lines.Count-1 then exit;
+    goto M;
+  end;
+end;
+
+procedure level3();
+label M;
+var
+i:integer;
+begin
+M:
+with form1.OOP1 do
+  begin
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[1])and(image4.Top=tp[1]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(rg=1)and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.take();')and(rg=0)and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        rg:=1;
+        image7.Picture.LoadFromFile('Рычаг2.png');
+        sp:=0;
+        inc(n);
+        form1.Timer2.Enabled:=true;
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    inc(n);
+    if n>srichedit1.Lines.Count-1 then exit;
+    goto M;
+  end;
+end;
+
+
+procedure level4();
+label M;
+var
+i:integer;
+begin
+M:
+with form1.OOP1 do
+  begin
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[1])and(image4.Top=tp[1]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.take(левыйрычаг);')and(image4.Left=lt[5])and(image4.Top=tp[5])and(image6.Left<>536) then
+      begin
+        image7.Picture.LoadFromFile('Рычаг1.png');
+        form1.Timer3.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.take(правыйрычаг);')and(image4.Left=lt[5])and(image4.Top=tp[5])and(image6.Left<>696) then
+      begin
+        image2.Picture.LoadFromFile('Рычаг2.png');
+        form1.Timer3.Enabled:=true;
+        exit;
+      end;
+     if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[5])and(image4.Top=tp[5])and(image6.Left<>616) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+     if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[2])and(image4.Top=tp[2])and(image6.Left<>696) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[2])and(image4.Top=tp[2])and(image6.Left<>536) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[4])and(image4.Top=tp[4]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[6])and(image4.Top=tp[6]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+      if (trim(lowercase(srichedit1.Lines[n]))='player.moveup();')and(image4.Left=lt[6])and(image4.Top=tp[6])and(image3.Visible=false) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+
+    if (trim(lowercase(srichedit1.Lines[n]))='player.take();')and(image4.Left=lt[3])and(image4.Top=tp[3]) then image3.Visible:=false;
+    inc(n);
+    if n>srichedit1.Lines.Count-1 then exit;
+    goto M;
+  end;
+end;
+
+//======================================================================================
+//======================================================================================
+procedure levelif();
+label M;
+var
+i:integer;
+begin
+M:
+with form1.OOP1 do
+  begin
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')
+    and(image4.Left=lt[1])and(image4.Top=tp[1])
+    and (trim(lowercase(srichedit1.Lines[n+1]))<>'if(enemy.attack(player)=true)then')
+    and (trim(lowercase(srichedit1.Lines[n+2]))<>'player.attack();')
+    and(rg=3) then
+      begin
+        p:='л';
+        sp2:=0;
+        rg:=0;
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')
+    and(image4.Left=lt[1])and(image4.Top=tp[1])
+    and(trim(lowercase(srichedit1.Lines[n+1]))='if(enemy.attack(player)=true)then')
+    and(trim(lowercase(srichedit1.Lines[n+2]))='player.attack();')
+    and(rg=3) then
+      begin
+        p:='в';
+        sp2:=0;
+        sp3:=0;
+        rg:=1;
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.attack();') then
+      begin
+        sp:=0;
+        sp1:=0;
+        image4.Visible:=false;
+        if (p='в')or(p='н') then image4.Top:=image4.Top-15;
+        if (p='п') then begin image4.Top:=image4.Top-8; image4.Left:=image4.Left+5; end;
+        if (p='л') then begin image4.Top:=image4.Top-8; image4.Left:=image4.Left-30; end;
+        form1.Timer4.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveright();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.movedown();')and(image4.Left=lt[2])and(image4.Top=tp[2]) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    if (trim(lowercase(srichedit1.Lines[n]))='player.moveleft();')and(image4.Left=lt[1])and(image4.Top=tp[1])and(rg=4) then
+      begin
+        form1.Timer1.Enabled:=true;
+        exit;
+      end;
+    inc(n);
+    if n>srichedit1.Lines.Count-1 then exit;
+    goto M;
+  end;
+end;
+
+
+
+
+
+
+end.

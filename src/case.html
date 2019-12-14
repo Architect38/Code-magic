@@ -1,0 +1,52 @@
+ <h3 style="padding: 0px; margin: 0px 0px 0.5em; clear: both; font-family: &quot;trebuchet ms&quot;, arial, sans-serif; font-weight: normal; font-size: 20px; text-align: justify; background-color: #ffffff;">Оператор выбора Паскаля</h3>
+<h3 style="padding: 0px; margin: 0px 0px 0.5em; clear: both; font-family: &quot;trebuchet ms&quot;, arial, sans-serif; font-weight: normal; font-size: 20px; text-align: justify; background-color: #ffffff;">&nbsp;</h3>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;"><strong style="padding: 0px; margin: 0px;">Оператор выбора Паскаля</strong>&nbsp;позволяет выбрать одно из нескольких возможных продолжений программы. Параметром, по которому осуществляется выбор, служит ключ выбора &ndash; выражение любого порядкового типа.</p>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Структура оператора выбора в Паскале такова:</p>
+<div class="example" style="padding: 7px; margin: 0px 0px 1em; border: 3px double #634f36; background: #f5f5f5; font-family: &quot;Courier New&quot;, Courier, monospace; font-size: 8pt;"><strong style="padding: 0px; margin: 0px;">Case &lt;ключ_выбора&gt; of&nbsp;<br style="padding: 0px; margin: 0px;">
+	&lt;список_выбора&gt;<br style="padding: 0px; margin: 0px;">
+	[else &lt;оператор_иначе&gt;] end</strong></div>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Здесь<strong style="padding: 0px; margin: 0px;">&nbsp;case, of, else, end</strong>&nbsp;&ndash; зарезервированные слова (случай, из, иначе, конец);</p>
+<ul style="padding: 0px; margin: 0.5em 0px 1em; list-style: none; font-size: 8pt;">
+	<li style="padding: 0px 0px 0px 12px; margin: 0px 0px 0.5em 2px; background: url(&quot;../img/bg_bullet_full_1.gif&quot;) 0px 0.5em no-repeat; line-height: 1.4em; font-size: 10.6667px;">&lt;ключ_выбора&gt; - выражение порядкового типа;</li>
+	<li style="padding: 0px 0px 0px 12px; margin: 0px 0px 0.5em 2px; background: url(&quot;../img/bg_bullet_full_1.gif&quot;) 0px 0.5em no-repeat; line-height: 1.4em; font-size: 10.6667px;">&lt;список_выбора&gt; - одна или более конструкций вида:
+		<ul style="padding: 0px; margin: 0.5em 0px 1em; list-style: none; font-size: 8pt;">
+			<li style="padding: 0px 0px 0px 12px; margin: 0px 0px 1.1em 2px; background: url(&quot;../img/li.gif&quot;) 0px 0.5em no-repeat; line-height: 1.4em; font-size: 10.6667px;">&lt;константа_выбора&gt;: &lt;оператор&gt;;</li>
+		</ul>
+	</li>
+	<li style="padding: 0px 0px 0px 12px; margin: 0px 0px 0.5em 2px; background: url(&quot;../img/bg_bullet_full_1.gif&quot;) 0px 0.5em no-repeat; line-height: 1.4em; font-size: 10.6667px;">&lt;константа_выбора&gt; - константа того же типа, что и выражение
+		<ul style="padding: 0px; margin: 0.5em 0px 1em; list-style: none; font-size: 8pt;">
+			<li style="padding: 0px 0px 0px 12px; margin: 0px 0px 1.1em 2px; background: url(&quot;../img/li.gif&quot;) 0px 0.5em no-repeat; line-height: 1.4em; font-size: 10.6667px;">&lt;ключ_выбора&gt;;</li>
+		</ul>
+	</li>
+</ul>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">&lt;операторы&gt; - произвольные операторы Паскаля.</p>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Оператор выбора Паскаля работает следующим образом. Вначале вычисляется значение выражения &lt;ключ_выбора&gt;, а затем в последовательности &lt;список_выбора&gt; отыскивается константа, равная вычисленному значению. Выполняется оператор, который следует за найденной константой, после чего оператор выбора завершает работу. Если в списке выбора не будет найдена константа, соответствующая вычисленному значению ключа выбора, управление передается операторам, стоящим за словом else. Часть else &lt;оператор_иначе&gt; можно опустить, тогда при отсутствии в списке выбора нужной константы не будет выполнено никаких действий, и оператор выбора просто завершит свою работу.</p>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Например, составим программу, которая по номеру дня недели выводит на экран его название:</p>
+<p><b class="exampleTitle" style="padding: 2px 6px; margin: 0px; border-top: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; border-image: initial; border-bottom: none; display: inline; background: url(&quot;../images/new-1.png&quot;) #6495ed; font-size: 8pt; color: white; white-space: nowrap;">Пример программы с использованием Case of</b></p>
+<div class="example" style="padding: 7px; margin: 0px 0px 1em; border: 3px double #634f36; background: #f5f5f5; font-family: &quot;Courier New&quot;, Courier, monospace; font-size: 8pt;">Program dni_nedeli;<br style="padding: 0px; margin: 0px;">
+	Var n: byte;&nbsp;<br style="padding: 0px; margin: 0px;">
+	Begin&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; Readln(n);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; <strong style="padding: 0px; margin: 0px;">Case</strong>&nbsp;n of&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1: writeln(&lsquo;понедельник &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2: writeln(&lsquo;вторник &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3: writeln(&lsquo;среда &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4: writeln(&lsquo;четверг &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5: writeln(&lsquo;пятница &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6: writeln(&lsquo;суббота &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7: writeln(&lsquo;воскресенье&rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong style="padding: 0px; margin: 0px;">else</strong>&nbsp;writeln(&lsquo;дня недели с номером&rsquo;, n,&rsquo;нет&rsquo;);<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; <strong style="padding: 0px; margin: 0px;">end;</strong><br style="padding: 0px; margin: 0px;">
+	end.&nbsp;</div>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Следует помнить, что все константы из списка выбора должны быть различны.</p>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Любому из операторов списка выбора может предшествовать не одна, а несколько констант выбора, разделенных запятыми. Например, следующая программа при вводе одного из символов &lsquo; y&rsquo; или &lsquo; Y&rsquo; выведет на экран &laquo;Да&raquo;, а при вводе &lsquo; n&rsquo; или &lsquo; N&rsquo; &ndash; слово &laquo;Нет&raquo;.</p>
+<p><b class="exampleTitle" style="padding: 2px 6px; margin: 0px; border-top: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; border-image: initial; border-bottom: none; display: inline; background: url(&quot;../images/new-1.png&quot;) #6495ed; font-size: 8pt; color: white; white-space: nowrap;">Пример программы с использованием Case of с несколькими переменными</b></p>
+<div class="example" style="padding: 7px; margin: 0px 0px 1em; border: 3px double #634f36; background: #f5f5f5; font-family: &quot;Courier New&quot;, Courier, monospace; font-size: 8pt;">Var ch: char;&nbsp;<br style="padding: 0px; margin: 0px;">
+	Begin&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; Readln(ch);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; <strong style="padding: 0px; margin: 0px;">Case</strong>&nbsp;ch of<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N, n: writeln(&lsquo;Да &rsquo;);&nbsp;<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y, y: writeln(&lsquo;Нет &rsquo;);<br style="padding: 0px; margin: 0px;">
+	&nbsp;&nbsp;&nbsp; <strong style="padding: 0px; margin: 0px;">End;</strong><br style="padding: 0px; margin: 0px;">
+	End.</div>
+<p style="padding: 0px; margin: 0px 0px 1em; line-height: 1.5em; font-size: 12px;">Очевидно, что рассмотренные выше программы можно записать с помощью вложенных или последовательно расположенных условных операторов, но в подобных задачах использование оператора выбора является более простым. Основное отличие условного оператора от оператора выбора состоит в том, что в условном операторе условия проверяются одно за другим, а в операторе выбора значение ключа выбора непосредственно определяет одну из возможностей.</p>

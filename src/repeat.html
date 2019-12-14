@@ -1,0 +1,21 @@
+ <h3 style="margin: 1em 2em 0em 0em; padding: 0.3em 0em 0.3em 0.5em; font-family: Helvetica, Arial, sans-serif; font-size: 19.2px; color: #008080; border-top: 1px solid #008080; border-left: 1px solid #008080; background-color: #ffffff;">÷икл repeat</h3>
+<p align="justify" style="margin: 0.6em 0px 1.2em; padding: 0px; font-size: 16.2px; line-height: 24.3px; text-indent: 2em; font-family: Verdana, sans-serif; background-color: #ffffff;">÷икл&nbsp;<strong>while</strong>&nbsp;может не выполнитьс€ ни разу, если логическое выражение в заголовке сразу вернуло&nbsp;<strong>false</strong>. ќднако така€ ситуаци€ не всегда может быть приемлемой. Ѕывает, что тело цикла должно выполнитьс€ хот€ бы один раз, не зависимо оттого, что вернет логическое выражение. ¬ таком случае используетс€ цикл repeat &ndash; цикл с постусловием.</p>
+<p align="justify" style="margin: 0.6em 0px 1.2em; padding: 0px; font-size: 16.2px; line-height: 24.3px; text-indent: 2em; font-family: Verdana, sans-serif; background-color: #ffffff;">¬ цикле&nbsp;<strong>repeat</strong>&nbsp;логическое выражение стоит после тела цикла. ѕричем, в отличие от цикла&nbsp;<strong>while</strong>, здесь всЄ наоборот: в случае&nbsp;<strong>true</strong>&nbsp;происходит выход из цикла, в случае&nbsp;<strong>false</strong>&nbsp;&ndash; его повторение.</p>
+<div class="geshifilter" style="padding: 0.5em; margin: 0.5em; border: 1px solid #cccccc; background-color: #f8f8f8; color: #222222; line-height: 1.3; overflow: auto; font-family: Verdana, sans-serif; font-size: 12px;">
+	<pre class="pascal geshifilter-pascal" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; line-height: 1.3;"><span style="color: #000000; font-weight: bold;">var</span>
+    i<span style="color: #339933;">,</span> n<span style="color: #339933;">:</span> <span style="color: #000066; font-weight: bold;">integer</span>;
+&nbsp;
+<span style="color: #000000; font-weight: bold;">begin</span>
+    <span style="color: #000066;">write</span> <span style="color: #009900;">(</span><span style="color: #ff0000;">&#39; оличество знаков: &#39;</span><span style="color: #009900;">)</span>;
+    <span style="color: #000066;">readln</span> <span style="color: #009900;">(</span>n<span style="color: #009900;">)</span>;
+&nbsp;
+    i <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">1</span>;
+    <span style="color: #000000; font-weight: bold;">repeat</span>
+        <span style="color: #000066;">write</span> <span style="color: #009900;">(</span><span style="color: #ff0000;">&#39;(*) &#39;</span><span style="color: #009900;">)</span>;
+        i <span style="color: #339933;">:=</span> i <span style="color: #339933;">+</span> 1
+    <span style="color: #000000; font-weight: bold;">until</span> i &gt; n;
+&nbsp;
+<span style="color: #000066;">readln</span>
+<span style="color: #000000; font-weight: bold;">end</span>.</pre>
+</div>
+<p>&nbsp;</p>

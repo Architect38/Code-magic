@@ -1,0 +1,37 @@
+unit Unit8;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, acPNG, ExtCtrls, sPanel, acSlider, sComboBox, sMemo,
+  sLabel;
+
+type
+  TForm8 = class(TForm)
+    Image1: TImage;
+    sComboBox1: TsComboBox;
+    Label1: TLabel;
+    sMemo1: TsMemo;
+    sLabel1: TsLabel;
+    Label2: TLabel;
+    Image2: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form8: TForm8;
+
+implementation
+
+uses Unit1;
+
+
+
+{$R *.dfm}
+
+end.
+ 

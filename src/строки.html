@@ -1,0 +1,119 @@
+<h2 style="padding: 4px; border-width: 1px; border-style: solid; background-color: #e3dfd4; border-color: #c6bda8; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 1.15em;">Строка. Тип данных string. Строковые переменные, их описание. Длина строки. Операции над строками</h2>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Строка (string) - это последовательность литер. Литерные строки уже использовались нами в качестве аргументов операторa write при изучении темы &quot;Ввод-вывод&quot;. Теперь познакомимся с ними подробнее.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Тип данных (string) определяет строки с максимальной длиной 255 символов. Переменная этого типа может принимать значения переменной длины.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Например,</p>
+<table bgcolor="#e0e0e0" style="border-spacing: 0px; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 13px;" width="100%">
+	<tbody>
+		<tr>
+			<td><code>MaxLine : string;<br>
+				&nbsp; City : string[30]</code></td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Строковая переменная может иметь атрибут длины, определяющий ее максимальную длину.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Текущая длина строковой переменной может быть определена с помощью встроенной функции Length. Для заданного значения типа string эта функция возвращает целое значение, показывающее количество литер в строке.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Выражения, в которых операндами служат строки, называются строковыми выражениями.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Над строками определены&nbsp;следующие операции:</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">1. Операция&nbsp;конкатенации &nbsp;(+) применяется для сцепления нескольких строк в одну.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Например,&nbsp;<br>
+	SumStr := &#39;Турбо &#39;+&#39;Паскаль &#39;+&#39;7.0&#39;</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">2. Операции отношения (=, &lt;&gt;, &gt;, &lt;, &gt;=, &lt;=) проводят посимвольное сравнение двух строк слева направо до первого несовпадающего символа. Большей считается та строка, в которой первый несовпадающий символ имеет больший номер в стандартной таблице обмена информацией. Результат выполнения операций отношения над строками всегда имеет булевский тип.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Например, выражение &#39;MS-DOS&#39;&lt;&#39;MS-Dos&#39; имеет значение True</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Если строки имеют различную длину, но в их общей части символы совпадают, считается, что более короткая строка меньше, чем более длинная.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Строки считаются равными, если они совпадают по длине и содержат одни и те же символы на соответствующих местах в строке.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Для присваивания строковой переменной результата строкового выражения используется оператор присваивания. Если значение переменной после выполнения оператора присваивания превышает по длине максимально допустимую при описании величину, то все лишние символы справа отбрасываются.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Допускается смешение в одном выражении операндов строкового и символьного типа.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">К отдельным символам строки можно обратиться по номеру (индексу) данного символа в строке.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Например, чтобы обратиться к третьему символу строки SumStr надо записать SumStr[3]. Запись SumStr[0] дает значение текущей длины строки.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Для эффективного программирования алгоритмов обработки текстов необходимо хорошо понимать внутреннюю структуру представления строк в памяти. Строки реализованы достаточно просто. Для хранения строковых переменных выделяется количество байтов памяти, на единицу большее максимальной длины строки. Начальный байт этой памяти отводится для хранения текущей длины строки, следующие байты - для символов самой строки. Так как элементы строк стандартно нумеруются целыми числами, начиная с единицы, байт с длиной строки можно считать нулевым ее элементом. Такая структура памяти допускает прямой доступ к ее элементам.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;"><img alt="Структура строки в языке Паскаль" border="0" height="180" hspace="0" src="http://informatics.mccme.ru/moodle/file.php/19/PascalSt/image_11.gif" title="Структура строки в языке Паскаль" width="702"></p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Важно отметить, что имеется возможность динамически управлять текущей длиной строки. Следующая программа показывает автоматическое изменение длины строки после тех или иных операций с нею. Обратите внимание, что общий (определяемый с помощью стандартной функции SizeOf) размер памяти, отведенной для хранения строки все время остается неизменным.</p>
+<table bgcolor="#e0e0e0" style="border-spacing: 0px; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 13px;" width="100%">
+	<tbody>
+		<tr>
+			<td><code>Program StringLength;<br>
+				Var<br>
+				&nbsp; S : string; {макс. длина строки = 255}<br>
+				Begin<br>
+				&nbsp; S:=&#39;&#39;; {пустая строка}<br>
+				&nbsp; writeln (S,&#39; &#39;,SizeOf(S),&#39; &#39;,Length(S)); {размер=256, длина=0}<br>
+				&nbsp; S:=&#39;Пример длинной строки&#39;; {присваиваем строке некоторое значение}<br>
+				&nbsp; writeln (S,&#39; &#39;,SizeOf(S),&#39; &#39;,Length(S)); {размер=256, длина=21}<br>
+				&nbsp; Delete(S,7,8); {удаляем из строки 8 символов, начиная с 7}<br>
+				&nbsp; writeln (S,&#39; &#39;,SizeOf(S),&#39; &#39;,Length(S)); {размер=256, длина=13}<br>
+				&nbsp; S:=S+&#39; символов&#39;; {добавляем к строке строку}<br>
+				&nbsp; writeln (S,&#39; &#39;,SizeOf(S),&#39; &#39;,Length(S)); {размер=256, длина=22}<br>
+				End.</code></td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;"><u><b>Внимание</b></u>! При решении задач со строковыми переменными Вы можете столкнуться с распространенной трудно обнаруживаемой&nbsp;ошибкой, когда после присваивания некоторым элементам строки символов ни содержимое, ни длина строки не изменяются. Разберемся, с чем это связано.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Очень важно понимать, что при доступе к некоторому элементу строки значение ее текущей длины не проверяется. Это иллюстрирует следующая программа:</p>
+<table bgcolor="#e0e0e0" style="border-spacing: 0px; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 13px;" width="100%">
+	<tbody>
+		<tr>
+			<td><code>Program StringElements;<br>
+				Var<br>
+				&nbsp; S : string; {макс. длина строки = 255}<br>
+				Begin<br>
+				&nbsp; S:=&#39;ABCD&#39;; {инициализация строки}<br>
+				&nbsp; writeln (S,&#39; &#39;,Length(S)); {вывод строки и ее длины}<br>
+				&nbsp; S[5] := &#39;E&#39;; {присваивание элементу строки}<br>
+				&nbsp; writeln (S,&#39; &#39;,Length(S)); {ни сама строка, ни ее длина не изменились}<br>
+				End.</code></td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Присваивание пятому элементу строки некоторого значения не изменяет длину строки, что подтверждает вывод на экран ее содержимого и длины (конечно само присваивание реально произошло, но на значение текущей длины строки в нулевом байте это никакого влияния не оказало). Работа с элементами строки без учета ее текущей длины и является ошибкой программиста. Посмотрите следующую программу:</p>
+<table bgcolor="#e0e0e0" style="border-spacing: 0px; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 13px;" width="100%">
+	<tbody>
+		<tr>
+			<td><code>Program StringElements2;<br>
+				Var<br>
+				&nbsp; Str : string[26]; {длина строки = 26}<br>
+				&nbsp; i : integer;<br>
+				Begin<br>
+				&nbsp; Str:=&#39;A&#39;;&nbsp;<br>
+				&nbsp;&nbsp;for i := 1 to 26 do<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;Str[i] := Chr (Ord(&#39;A&#39;)+i-1);<br>
+				&nbsp;&nbsp;writeln(Str);<br>
+				End.</code></td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Предполагается, что данная программа должна сформировать строку из 26 символов, содержимым которой является последовательность заглавных букв латинского алфавита. Однако вызов процедуры writeln показывает, что содержимым переменной Str будет строка из одного символа &#39;А&#39;. Природа совершенной ошибки заключается в том, что присваивание значений элементам строки не влияет на текущую длину, которая была установлена равной 1 при первом присваивании. Поэтому правильной будет следующая программа:</p>
+<table bgcolor="#e0e0e0" style="border-spacing: 0px; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 13px;" width="100%">
+	<tbody>
+		<tr>
+			<td><code>Program stringElements3;<br>
+				Var<br>
+				&nbsp; Str : string[26]; {длина строки = 26}<br>
+				&nbsp; i : char;<br>
+				Begin<br>
+				&nbsp; Str:=&#39;&#39;;&nbsp;<br>
+				&nbsp; for i := &#39;A&#39; to &#39;Z&#39; do<br>
+				&nbsp;&nbsp;&nbsp; Str := Str + i;<br>
+				&nbsp; writeln(Str);<br>
+				End.</code></td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Операция конкатенации, как и все стандартные операции, работающие со строками, в отличие от поэлементного присваивания, изменяет длину строки, что дает корректный результат. Кроме того, вторая программа работает непосредственно с символами букв. Наконец, не следует забывать инициализировать строку перед ее заполнением (первый оператор программы). В противном случае, так как начальная длина строки является неопределенной, можно получить произвольный результат; не стоит рассчитывать на то, что в нулевом байте стоит ноль.</p>
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">Для обработки строковых данных можно использовать встроенные процедуры и функции:</p>
+<ol style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: #ffffff;">
+	<li><b>Delete (Str, Poz, N)</b>&nbsp;- удаление N символов строки Str, начиная с позиции Poz.<br>
+		&nbsp;</li>
+	<li><b>Insert (What, Where, Poz)</b>&nbsp;- вставка строки What в строку Where, начиная с позиции Poz.<br>
+		&nbsp;</li>
+	<li><b>Copy (Str, Poz, Nstr)</b>&nbsp;- выделяет подстроку длиной Nstr, начиная с позиции Poz, из строки Str.<br>
+		&nbsp;</li>
+	<li><b>Concat (Str1, Str2, ..., StrN)</b>&nbsp;- выполняет сцепление строк в том порядке, в каком указаны в списке параметров.<br>
+		&nbsp;</li>
+	<li><b>Pos (What, Where)</b>&nbsp;- обнаруживает первое появление подстроки What в строке Where.<br>
+		&nbsp;</li>
+	<li><b>UpCase (Ch)</b>&nbsp;- преобразует строчную букву в прописную.<br>
+		&nbsp;</li>
+	<li><b>Str (Number, Stroka)</b>&nbsp;- преобразует число в строку.<br>
+		&nbsp;</li>
+	<li><b>Val (Stroka, Number, Code)</b>&nbsp;- преобразует строку в число и выдает код правильности преобразования.</li>
+</ol>

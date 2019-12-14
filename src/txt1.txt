@@ -1,0 +1,5 @@
+ƒоступный синтаксис:
+Player.MoveDown(); //движение вниз
+Player.MoveUp(); //движение вверх
+Player.MoveRight(); //движение вправо
+Player.MoveLeft(); //движение влево

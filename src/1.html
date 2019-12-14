@@ -1,0 +1,137 @@
+<p align="left">В языке Паскаль любые объекты, т.е. константы, переменные, значения функций или выражения,&nbsp; характеризуются своими типами. Тип определяет множество допустимых значений того или иного объекта, а также множество операций, которые к нему применимы. Кроме того, тип определяет формат внутреннего представления данных в памяти ЭВМ. В отношении типов объектов Паскаль является статическим языком. Это означает, что тип объекта, например, переменной, определяется при ее описании и не может быть изменен в дальнейшем.</p>
+<p align="center"><font size="+1">Структура типов данных в языке Паскаль:</font></p>
+<p align="center"><img alt="Структура типов языка Паскаль" border="0" height="378" ismap="ismap" src="http://physics.herzen.spb.ru/library/03/01/pp/TPHelp/images/types.gif" width="478"></p>
+<p align="left"><font face="Arial"><strong><a name="Простые типы языка">Простые типы языка</a></strong></font><br>
+	К простым типам относятся порядковые, &nbsp; вещественный, строковый и адресный (указатели) типы. Все они определяют тип только одного отдельного значения.</p>
+<p align="left"><strong>Порядковые типы</strong>&nbsp;характеризуются тем, что каждый из них имеет конечное число возможных значений, среди которых установлен линейный порядок. С каждым из значений можно сопоставить некоторое целое число - его порядковый номер.</p>
+<p align="left"><a name="Целочисленные типы"><font color="#0000FF"><strong>Целочисленные типы</strong></font></a>&nbsp;- обозначают множества целых чисел в различных диапазонах. Имеется пять целочисленных типов, различающихся диапазоном допустимых значений и размером занимаемой оперативной памяти. Целочисленные типы обозначаются идентификаторами:&nbsp;<strong>Byte</strong>,&nbsp;<strong>ShortInt</strong>,&nbsp;<strong>Word</strong>,&nbsp;<strong>Integer</strong>,&nbsp;<strong>LongIn</strong>t; их характеристики приведены в следующей таблице.</p>
+<div align="center">
+	<center>
+		<table bgcolor="#FFFFFF" border="2" cellpadding="0" cellspacing="0" cols="3" width="80%">
+			<tbody>
+				<tr align="CENTER" valign="CENTER">
+					<td align="CENTER" width="20%"><b>Тип&nbsp;</b></td>
+					<td align="CENTER"><b>Диапазон&nbsp;</b></td>
+					<td align="CENTER" valign="CENTER" width="20%"><b>Размер в байтах&nbsp;</b></td>
+				</tr>
+				<tr>
+					<td align="CENTER">Byte&nbsp;&nbsp;<br>
+						ShortInt&nbsp;&nbsp;<br>
+						Word<br>
+						<font color="#004080"><strong>Integer</strong></font>&nbsp;&nbsp;<br>
+						LongInt</td>
+					<td align="CENTER">0 ... 255<br>
+						-128 ... 127<br>
+						0 ... 65535<br>
+						<font color="#004080">-32768 ... 32767</font><br>
+						-2147483648 ... 2147483647</td>
+					<td align="CENTER">1<br>
+						1<br>
+						2<br>
+						<font color="#004080">2</font><br>
+						4</td>
+				</tr>
+			</tbody>
+		</table>
+	</center>
+</div>
+<p align="left">Значения целых типов записываются в программе привычным способом:</p>
+<p align="center"><small><strong><font color="#006600" face="Courier New">123 &nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; -3&nbsp;&nbsp;&nbsp; +345&nbsp;&nbsp;&nbsp; -699</font></strong></small></p>
+<p align="left">Наличие десятичной точки в записи целого числа недопустимо. Будет ошибкой записать целое число следующим образом:</p>
+<p align="center"><strong><font color="#FF0000" face="Courier New"><small>123.0</small></font></strong></p>
+<p align="left">Кроме прывычной десятичной формы записи допускается запись целых чисел в шестнадцатиричном формате, используя префикс $, например:</p>
+<p align="center"><font color="#006600" face="Courier New"><small><strong>$01AF &nbsp;&nbsp;&nbsp; $FF&nbsp;&nbsp;&nbsp; $1A&nbsp;&nbsp;&nbsp; $F0A1B</strong></small></font></p>
+<p align="left">Регистр букв A,B, ..., F значения не имеет.</p>
+<p align="left"><strong>Допустимые операции</strong>:<br>
+	- присваивание;<br>
+	- все арифметические: +, - ,*, /, div, mod (при обычном делении [/] результат вещественный!);<br>
+	- сравнение &lt;, &gt;, &gt;=, &lt;=, &lt;&gt;, =.</p>
+<p align="left"><a name="Логический тип (Boolean)"><font color="#0000FF"><strong>Логический тип (Boolean)</strong></font></a>&nbsp;- состоит всего из двух значений:&nbsp;<strong>False</strong>&nbsp;(ложно) и&nbsp;<strong>True</strong>&nbsp;(истинно). Слова&nbsp;<strong>False</strong>&nbsp;и&nbsp;<strong>True</strong>&nbsp;определены в языке и являются, по сути, логическими константами. Регистр букв в их написании несущественен:&nbsp;<strong>FALSE</strong>&nbsp;=&nbsp;<strong>false</strong>. Значения этого типа являются результатом вычислений условных и логических выражений и участвуют во всевозможных условных операторах языка.</p>
+<p align="left"><strong>Допустимые операции</strong>:&nbsp;<br>
+	- присваивание;<br>
+	- сравнение: &lt;, &gt;, &gt;=, &lt;=, &lt;&gt;, =;<br>
+	- логические операции: NOT, OR, AND, XOR</p>
+<p align="left"><a name="Символьный тип (Char)"><font color="#0000FF"><strong>Символьный тип (Char)</strong></font></a>&nbsp;- это тип данных, состоящих из одного символа (знака, буквы, кода). Значением типа Char может быть любой символ из набора ASCII. Если символ имеет графическое представление, то в программе он записывается заключенным в одиночные кавычки (апострофы), например:</p>
+<p align="center"><font color="#006600" face="Courier New"><small><strong>&#39;ж&#39; &nbsp;&nbsp;&nbsp; &#39;s&#39;&nbsp;&nbsp;&nbsp; &#39;.&#39;&nbsp;&nbsp;&nbsp; &#39;*&#39;&nbsp;&nbsp;&nbsp; &#39; &#39;</strong>-(пробел)</small></font></p>
+<p align="left">Для представления самого апострофа его изображение удваивается:&nbsp;<font color="#006600" face="Courier New"><strong><small>&#39;&#39;&#39;&#39;</small></strong></font>.&nbsp;<br>
+	Если же символ не имеет графического представления, например, символ табуляции или символ возрата каретки, то можно воспользоваться эквивалентной формой записи символьного значения, состоящего из префикса # и ASCII-кода символа:</p>
+<p align="center"><font color="#006600" face="Courier New"><small>#<strong>9 &nbsp;&nbsp;&nbsp;&nbsp;</strong>#<strong>32&nbsp;&nbsp;&nbsp;&nbsp;</strong>#<strong>13</strong></small></font></p>
+<p align="left"><strong>Допустимые операции</strong>:&nbsp;<br>
+	- присваивание;<br>
+	- сравнение: &lt;, &gt;, &gt;=, &lt;=, &lt;&gt;, =. Большим считается тот символ, который имеет больший ASCII-номер.</p>
+<p align="left"><a name="Строковый тип (String, String[n])"><font color="#0000FF"><strong>Строковый тип (String, String[n])</strong></font></a>&nbsp;- этот тип данных определяет последовательности символов - строки. Параметр n определяет максимальное количество символов в строке. Если он не задан, подразумевается n=255. Значение типа &quot;строка&quot; в программе запиывается как последовательность символов, заключенных в одиночные кавычки (апострофы), например</p>
+<p align="center"><font color="#006600" face="Courier New"><strong><small>&#39;Это текстовая строка&#39; &nbsp; &#39;This is a string&#39;</small><br>
+	<small>&#39;1234&#39; -&nbsp;</small></strong><small>это тоже строка, не число</small><br>
+	<small><strong>&#39;&#39; -&nbsp;</strong>пустая строка</small></font></p>
+<p align="left"><strong>Допустимые операции</strong>:&nbsp;<br>
+	- присваивание;<br>
+	- сложение (конкатенация, слияние); например,&nbsp;<font color="#006600" face="Courier New"><strong><small>S := &#39;Зима&#39;+&#39; &#39;+&#39;пришла!&#39;;</small></strong></font><br>
+	- сравнение: &lt;, &gt;, &gt;=, &lt;=, &lt;&gt;, =. Строки считаются равными, если имеют одинаковую длину и посимвольно эквивалентны.</p>
+<p align="left">&nbsp;</p>
+<p align="left"><a name="Вещественные типы"><font color="#0000FF"><strong>Вещественные типы</strong></font></a>&nbsp;- обозначают множества вещественных чисел в различных диапазонах. Имеется пять вещественных типов, различающихся диапазоном допустимых значений и размером занимаемой оперативной памяти. Вещественные типы обозначаются идентификаторами:&nbsp;<strong>Real, Single, Double, Extended, Comp</strong>; их характеристики приведены в следующей таблице.</p>
+<div align="center">
+	<center>
+		<table bgcolor="#FFFFFF" border="2" cellpadding="0" cellspacing="0" cols="3" width="80%">
+			<tbody>
+				<tr align="CENTER" valign="CENTER">
+					<td align="CENTER" width="20%"><b>Тип&nbsp;</b></td>
+					<td align="CENTER"><b>Диапазон&nbsp;</b></td>
+					<td align="CENTER" valign="CENTER" width="20%"><b>Размер в байтах&nbsp;</b></td>
+				</tr>
+				<tr>
+					<td align="CENTER"><strong><font color="#0080C0"><strong>Real</strong></font></strong><br>
+						Single<br>
+						Double<br>
+						Extended<br>
+						Comp</td>
+					<td align="CENTER"><font color="#0080C0">2.9&middot;10<sup>-39</sup>&nbsp;... 1.7&middot;10<sup>38</sup></font><br>
+						<font color="#000000">1.5&middot;10<sup>-45</sup>&nbsp;... 3.4&middot;10<sup>38</sup></font><br>
+						5.0<font color="#000000">&middot;10<sup>-324</sup></font>&nbsp;... 1.7<font color="#000000">&middot;10<sup>308</sup></font><br>
+						3.4<font color="#000000">&middot;10<sup>-4932</sup></font>&nbsp;... 1.1<font color="#000000">&middot;10<sup>-4932</sup></font><br>
+						-2<font color="#000000">&middot;10<sup>63</sup></font>&nbsp;... +2<font color="#000000">&middot;10<sup>63</sup></font>-1</td>
+					<td align="CENTER"><font color="#0080C0">6</font><br>
+						4<br>
+						8<br>
+						10<br>
+						8</td>
+				</tr>
+			</tbody>
+		</table>
+	</center>
+</div>
+<p align="left">Тип&nbsp;<strong>Comp</strong>&nbsp;хотя и относится к вещественным типам, на самом деле является целочисленным с очень огромным диапазоном значений.</p>
+<p align="left">Значения вещественных типов могут записываться в программе несколькими способами:</p>
+<table border="0" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>1.456</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>0.000134</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>-120.0</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>65432</small></strong></font></td>
+		</tr>
+		<tr>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>+345</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>0</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>-45</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>127E+12</small></strong></font></td>
+		</tr>
+		<tr>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>-1.5E-5</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>-1.6E+12</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>5E4</small></strong></font></td>
+			<td align="center" width="25%"><font color="#006600" face="Courier New"><strong><small>0.002E-6</small></strong></font></td>
+		</tr>
+	</tbody>
+</table>
+<p align="left">Будет ошибкой записать вещественное число следующим образом:</p>
+<p align="center"><small><strong><font color="#FF0000" face="Courier New">.5</font><font color="#006600" face="Courier New">&nbsp;</font></strong><font color="#006600" face="Courier New">(правильно&nbsp;<strong>0.5</strong>)</font></small><br>
+	<strong><small><font color="#FF0000" face="Courier New">12.</font><font color="#006600" face="Courier New">&nbsp;</font></small></strong><small><font color="#006600" face="Courier New">(правильно&nbsp;<strong>12.0&nbsp;</strong>или<strong>&nbsp;12</strong>)</font></small></p>
+<p align="left">Вещественное число в форме с плавающей точкой (экспоненциальная форма) записывается как пара</p>
+<p align="center"><strong><font color="#800000" face="Verdana"><small>&lt;мантисса&gt; Е &lt;порядок&gt;</small></font></strong></p>
+<p align="left">Такое обозначение понимается как &quot;мантисса, умноженная на десять в степени, равном порядку&quot;. Например,</p>
+<p align="center"><font color="#006600" face="Courier New"><strong><small>-1.6E+12&nbsp;</small></strong></font><font color="#000000">сответствует -1.6&middot;10<sup>12</sup></font></p>
+<p align="left"><strong>Допустимые операции</strong>:&nbsp;<br>
+	- присваивание;<br>
+	- все арифметические: +, - ,*, / ;<br>
+	- сравнение: &lt;, &gt;, &gt;=, &lt;=, &lt;&gt;, =. При сравнении вещественных чисел следует помнить, что в следствие неточности их представления в памяти компьютера (в виду неизбежности округления) стоит избегать попыток определения строгого равенства двух вещественных значений. Есть шанс, что равенство окажется ложным, даже если на самом деле это не так.</p>
+<p align="left"><a name="Диапазон"><font color="#0000FF"><strong>Диапазон</strong></font></a>&nbsp;или (ограниченный тип) не является предопределенным типом языка&nbsp;и поэтому ему не соответствует никакой идентификатор. Этот тип является вводимм пользователем. Используя его мы можем определить&nbsp;<em>новый</em>&nbsp;тип, который будет содержать значения только из ограниченного поддиапазона некоего базового типа. Базовым типом может быть только целочисленный тип, тип&nbsp;</p>
